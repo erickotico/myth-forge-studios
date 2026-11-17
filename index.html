@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://raw.githubusercontent.com https://api.web3forms.com; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Myth Forge Studios: independent game studio forging worlds of myth and legend.">
+<title>Myth Forge Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Chakra+Petch:wght@400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+Runic&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+<canvas id="embers" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Myth Forge Studios, início" data-en-aria-label="Myth Forge Studios, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 2 37 11v18L20 38 3 29V11Z" fill="none" stroke="var(--rune)" stroke-width="1.4"/>
+        <path d="M10 17h20l-3 4h-4v6h4v3H13v-3h4v-6h-4z" fill="var(--ember)"/>
+        <path d="M20 8v5M14 10l2 3M26 10l-2 3" stroke="var(--ember-hot)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <div><b>Myth Forge</b><span>STUDIOS</span></div>
+    </a>
+    <nav aria-label="Principal" data-en-aria-label="Main">
+      <ul id="main-menu">
+        <li><a href="#jogos" data-en="Games">Jogos</a></li>
+        <li><a href="#diario" data-en="Journal">Diário</a></li>
+        <li><a href="#forja" data-en="The Forge">A Forja</a></li>
+        <li><a href="#guilda" data-en="Guild">Guilda</a></li>
+        <li><a href="#comunidade" data-en="Community">Comunidade</a></li>
+        <li><a href="#contato" data-en="Contact">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false" title="Português">PT</button>
+      </div>
+      <a class="btn sm nav-cta" href="#contato" data-en="Talk to the forge">Falar com a forja</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="topo">
+  <!-- HERO -->
+  <section class="hero" style="padding-top:0">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow hud" data-en="Independent game studio · Brazil">Estúdio independente de games · Brasil</div>
+        <h1 class="title">Myth Forge<small>STUDIOS</small></h1>
+        <p class="lede" data-en="We forge worlds of &lt;em&gt;sword and sorcery&lt;/em&gt; with tomorrow's technology. Ancient legends, tempered in code.">Forjamos mundos de <em>espada e feitiçaria</em> com a tecnologia de amanhã. Lendas antigas, temperadas em código.</p>
+        <div class="cta">
+          <a class="btn" href="#jogos"><span data-en="See our worlds">Ver nossos mundos</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></a>
+          <a class="btn ghost" href="#guilda" data-en="Join the guild">Entrar na guilda</a>
+        </div>
+      </div>
+
+      <div class="sigil" id="sigil" role="button" tabindex="0" aria-label="Golpear a bigorna" data-en-aria-label="Strike the anvil">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="var(--ember-hot)" stop-opacity=".9"/>
+              <stop offset=".35" stop-color="var(--ember)" stop-opacity=".45"/>
+              <stop offset="1" stop-color="var(--ember)" stop-opacity="0"/>
+            </radialGradient>
+            <path id="ringText" d="M200,200 m-150,0 a150,150 0 1,1 300,0 a150,150 0 1,1 -300,0"/>
+          </defs>
+          <circle class="core" cx="200" cy="200" r="120" fill="url(#glow)"/>
+          <g class="spin">
+            <circle cx="200" cy="200" r="182" fill="none" stroke="var(--rune)" stroke-opacity=".35" stroke-width="1" stroke-dasharray="2 6"/>
+            <circle cx="200" cy="200" r="168" fill="none" stroke="var(--rune)" stroke-opacity=".6" stroke-width="1"/>
+            <g id="ticks"></g>
+          </g>
+          <g class="spin rev">
+            <text font-family="Noto Sans Runic, serif" font-size="19" fill="var(--rune)" letter-spacing="9">
+              <textPath href="#ringText">ᛗᛁᚦ ᚠᛟᚱᚷ · ᛋᛏᚢᛞᛁᛟᛋ · ᚨᚾᚢᛁᛚ · ᛚᛖᚷᛖᚾᛞ · ᚲᛟᛞᛖ · ᛗᛁᚦ ᚠᛟᚱᚷ · ᛋᛏᚢᛞᛁᛟᛋ ·</textPath>
+            </text>
+            <polygon points="200,92 293,254 107,254" fill="none" stroke="var(--ember)" stroke-opacity=".5" stroke-width="1"/>
+            <polygon points="200,308 107,146 293,146" fill="none" stroke="var(--ember)" stroke-opacity=".5" stroke-width="1"/>
+          </g>
+          <!-- bigorna -->
+          <g class="anvil"><g transform="translate(200 212)">
+            <path d="M-62 -26h112c0 0 4 16-22 22h-14v20h18v14h-74v-14h18v-20h-14c-20-4-24-14-24-22z" fill="var(--void)" stroke="var(--ember-hot)" stroke-width="2"/>
+            <path d="M-50 -26h-22c6 10 18 12 22 12z" fill="var(--void)" stroke="var(--ember-hot)" stroke-width="2"/>
+            <path d="M-40 -34h60" stroke="var(--rune)" stroke-width="2" stroke-dasharray="6 4"/>
+            <circle cx="-2" cy="-58" r="3" fill="var(--ember-hot)"/><circle cx="14" cy="-70" r="2" fill="var(--ember)"/><circle cx="-16" cy="-74" r="1.6" fill="var(--ember-hot)"/>
+          </g></g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="readouts hud" aria-label="Painel da forja" data-en-aria-label="Forge panel">
+      <div class="wrap">
+        <span class="hot" data-en="Furnace &lt;b&gt;1,538 °C&lt;/b&gt;">Fornalha <b>1.538 °C</b></span>
+        <span data-en="Engine &lt;b&gt;Unreal Engine 5&lt;/b&gt;">Motor <b>Unreal Engine 5</b></span>
+        <span class="opt" data-en="Worlds forged &lt;b&gt;04&lt;/b&gt;">Mundos forjados <b>04</b></span>
+        <span class="opt">Coord. <b id="clock">--:--:--</b> BRT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOGOS -->
+  <section id="jogos">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="rune" aria-hidden="true">ᚷ</span>
+        <span class="hud" data-en="Grimoire · Our worlds">Grimório · Nossos mundos</span>
+        <h2 data-en="Legends on the anvil">Lendas na bigorna</h2>
+      </div>
+
+      <div class="games">
+        <article class="game feat plate">
+          <div class="art">
+            <canvas id="arena" aria-hidden="true"></canvas>
+            <span class="tag hud live" data-en="Alpha available">Alfa disponível</span>
+          </div>
+          <div class="body">
+            <div class="meta hud"><span data-en="Genre &lt;b&gt;Action RPG&lt;/b&gt;">Gênero <b>Action RPG</b></span><span data-en="Platform &lt;b&gt;PC&lt;/b&gt;">Plataforma <b>PC</b></span></div>
+            <h3>Empire of Rebirth &amp; Ruins</h3>
+            <p data-en="A fallen empire, six paths of combat and an arena where every strike counts. Choose your weapon, master the enemy's posture and break their guard before they break yours.">Um império caído, seis caminhos de combate e uma arena onde cada golpe conta. Escolha sua arma, domine a postura do inimigo e quebre a guarda antes que ele quebre a sua.</p>
+            <div>
+              <div class="bar-row hud"><span data-en="Playable classes">Classes jogáveis</span><b>3 / 6</b></div>
+              <div class="bar" role="img" aria-label="3 de 6 classes jogáveis" data-en-aria-label="3 of 6 classes playable"><span style="width:50%"></span></div>
+            </div>
+            <ul class="classes">
+              <li class="on" data-en="Warrior">Guerreiro</li><li class="off" data-en="Swordsman">Espadachim</li><li class="on" data-en="Lancer">Lanceiro</li><li class="on" data-en="Archer">Arqueiro</li><li class="off" data-en="Barbarian">Bárbaro</li><li class="off" data-en="Sorcerer">Feiticeiro</li>
+            </ul>
+            <div class="legend hud"><span data-en="&lt;i&gt;&lt;/i&gt;Playable"><i></i>Jogável</span><span data-en="&lt;i class='d'&gt;&lt;/i&gt;In the forge"><i class="d"></i>Na forja</span></div>
+            <div class="play cta-row"><a class="btn sm" href="https://erickotico-dev.itch.io/empire-of-rebirth" target="_blank" rel="noopener" data-en="Play the alpha on itch.io">Jogar a alfa no itch.io</a><a class="btn sm ghost" href="#empire-of-rebirth" data-en="View game page">Ver página do jogo</a></div>
+          </div>
+        </article>
+
+        <article class="game feat rev plate">
+          <div class="art">
+            <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="pitch" class="a-pitch"></svg>
+            <span class="tag hud" data-en="In development">Em desenvolvimento</span>
+          </div>
+          <div class="body">
+            <div class="meta hud"><span data-en="Genre &lt;b&gt;Football management&lt;/b&gt;">Gênero <b>Gerenciamento de futebol</b></span><span data-en="Platform &lt;b&gt;PC&lt;/b&gt;">Plataforma <b>PC</b></span></div>
+            <h3>Master Tactician</h3>
+            <p data-en="You are the coach. Take charge of a club, pick the lineup, draw the tactics on the board and lead the team match by match to glory, or to the sack.">Você é o técnico. Assuma o comando de um clube, monte a escalação, desenhe a tática na prancheta e conduza o time rodada a rodada até a glória, ou até a demissão.</p>
+            <ul class="feats">
+              <li data-en="Lineup and formation">Escalação e formação</li><li data-en="Tactics on the board">Táticas na prancheta</li><li data-en="Match by match">Partidas rodada a rodada</li><li data-en="Squad management">Gestão do elenco</li>
+            </ul>
+            <div class="play cta-row"><a class="btn sm ghost" href="#master-tactician" data-en="View game page">Ver página do jogo</a></div>
+          </div>
+        </article>
+
+        <article class="game plate">
+          <div class="art">
+            <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="forest" class="a-forest"></svg>
+            <span class="tag hud live" data-en="Alpha available">Alfa disponível</span>
+          </div>
+          <div class="body">
+            <div class="meta hud"><span data-en="Genre &lt;b&gt;JRPG · Exploration and adventure&lt;/b&gt;">Gênero <b>JRPG · Exploração e aventura</b></span></div>
+            <h3>Lendas da Resistência</h3>
+            <p data-en="The forest is bleeding. Illegal miners are closing in on the rivers and woods, and only you can join the mythical beings to drive them out and save the green heart of the world.">A floresta está sangrando. Garimpeiros ilegais avançam sobre os rios e as matas, e só você pode se unir aos seres mitológicos para expulsá-los e salvar o coração verde do mundo.</p>
+            <div class="play cta-row"><a class="btn sm" href="https://erickotico-dev.itch.io/lendas-da-resistencia" target="_blank" rel="noopener" data-en="Play the alpha on itch.io">Jogar a alfa no itch.io</a><a class="btn sm ghost" href="#lendas-da-resistencia" data-en="View game page">Ver página do jogo</a></div>
+          </div>
+        </article>
+
+        <article class="game plate">
+          <div class="art">
+            <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="quiz" class="a-quiz"></svg>
+            <span class="tag hud live" data-en="Released · Free">Lançado · Gratuito</span>
+          </div>
+          <div class="body">
+            <div class="meta hud"><span data-en="Genre &lt;b&gt;Quiz&lt;/b&gt;">Gênero <b>Perguntas e respostas</b></span><span data-en="Price &lt;b&gt;Free&lt;/b&gt;">Preço <b>Gratuito</b></span></div>
+            <h3>Trivia</h3>
+            <p data-en="Knowledge is the sharpest weapon. Answer against the clock, build your streak and prove who holds the most wisdom in the hall.">Conhecimento é a arma mais afiada. Responda contra o relógio, acerte em sequência e prove quem guarda mais saber no salão.</p>
+            <div class="play cta-row"><a class="btn sm" href="https://erickotico-dev.itch.io/trivia-game" target="_blank" rel="noopener" data-en="Play free on itch.io">Jogar grátis no itch.io</a><a class="btn sm ghost" href="#trivia" data-en="View game page">Ver página do jogo</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIÁRIO DA FORJA (3 mais recentes) -->
+  <section id="diario-home" class="diary-band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="rune" aria-hidden="true">ᛞ</span>
+        <span class="hud" data-en="Forge Journal · Latest posts">Diário da Forja · Últimas publicações</span>
+        <h2 data-en="Fresh off the anvil">O que saiu da bigorna</h2>
+      </div>
+      <div class="post-grid" id="diary-latest"></div>
+      <div class="cta" style="margin-top:28px"><a class="btn ghost" href="#diario" data-en="See the full journal">Ver o diário completo</a></div>
+    </div>
+  </section>
+
+  <!-- A FORJA -->
+  <section id="forja">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="rune" aria-hidden="true">ᚨ</span>
+        <span class="hud" data-en="The Forge · How we work">A Forja · Como trabalhamos</span>
+        <h2 data-en="From ore to legend">Do minério à lenda</h2>
+      </div>
+      <div class="about">
+        <div class="manifesto">
+          <p data-en="We believe the oldest myths deserve the &lt;strong&gt;newest technology&lt;/strong&gt;.">Acreditamos que os mitos mais antigos merecem a <strong>tecnologia mais nova</strong>.</p>
+          <p data-en="Myth Forge Studios was born to unite the weight of steel, the magic of sagas and the precision of modern game engineering. Every world goes through the same four stages of the forge before it reaches your hands.">A Myth Forge Studios nasceu para unir o peso do aço, a magia das sagas e a precisão da engenharia de jogos moderna. Cada mundo passa pelas mesmas quatro etapas da forja antes de chegar às suas mãos.</p>
+        </div>
+        <ol class="steps">
+          <li><span class="num">I</span><h3 data-en="Ore &lt;span class='hud'&gt;Concept&lt;/span&gt;">Minério <span class="hud">Conceito</span></h3><p data-en="Lore, concept art and the central question: which legend is worth telling?">Lore, arte conceitual e a pergunta central: que lenda vale a pena contar?</p></li>
+          <li><span class="num">II</span><h3 data-en="Smelting &lt;span class='hud'&gt;Prototype&lt;/span&gt;">Fundição <span class="hud">Protótipo</span></h3><p data-en="Combat and mechanics tested early, in greybox, until the game is fun without any decoration.">Combate e mecânicas testados cedo, em cinza, até o jogo ser divertido sem nenhum enfeite.</p></li>
+          <li><span class="num">III</span><h3 data-en="Hammer &lt;span class='hud'&gt;Production&lt;/span&gt;">Martelo <span class="hud">Produção</span></h3><p data-en="Animation, models, audio and world take shape strike by strike, with playable builds every week.">Animação, modelos, áudio e mundo ganham forma golpe a golpe, com builds jogáveis toda semana.</p></li>
+          <li><span class="num">IV</span><h3 data-en="Tempering &lt;span class='hud'&gt;Polish&lt;/span&gt;">Têmpera <span class="hud">Polimento</span></h3><p data-en="Playtests with real players, fine-tuning and optimization until the blade comes out sharp.">Testes com jogadores reais, ajuste fino e otimização até a lâmina sair afiada.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section id="equipe">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="rune" aria-hidden="true">ᛟ</span>
+        <span class="hud" data-en="The Team · Who forges the worlds">A Equipe · Quem forja os mundos</span>
+        <h2 data-en="The smiths of Myth Forge">Os ferreiros da Myth Forge</h2>
+      </div>
+      <div class="team">
+        <article class="member plate" data-id="erick" data-runes="ᛖᛗ" role="button" tabindex="0" aria-haspopup="dialog" style="--m:#62e2ff">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="member-text">
+            <span class="hud epithet" data-en="Forge Master">Mestre da Forja</span>
+            <h3>Erick Monteiro</h3>
+            <p class="m-role" data-en="Founder · Programmer">Fundador · Programador</p>
+          </div>
+        </article>
+        <article class="member plate" data-id="jonatas" data-runes="ᛃᚨ" role="button" tabindex="0" aria-haspopup="dialog" style="--m:#ff7a2f">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="member-text">
+            <span class="hud epithet" data-en="Beast Sculptor">Escultor de Feras</span>
+            <h3>Jonatas Araújo Xavier</h3>
+            <p class="m-role" data-en="Creature Modeler">Modelador de criaturas</p>
+          </div>
+        </article>
+        <article class="member plate" data-id="marco" data-runes="ᛗᚨ" role="button" tabindex="0" aria-haspopup="dialog" style="--m:#6fd39a">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="member-text">
+            <span class="hud epithet" data-en="Master of Motion">Mestre do Movimento</span>
+            <h3>Marco Antônio Ramos Antunes</h3>
+            <p class="m-role" data-en="3D Animator">Animador 3D</p>
+          </div>
+        </article>
+        <article class="member plate" data-id="joao" data-runes="ᛃᚱ" role="button" tabindex="0" aria-haspopup="dialog" style="--m:#6fd39a">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="member-text">
+            <span class="hud epithet" data-en="Motion Artificer">Artífice do Movimento</span>
+            <h3>João Victor Quintães do Rego</h3>
+            <p class="m-role" data-en="3D Animator · UI/UX Artist">Animador 3D · Artista UI/UX</p>
+          </div>
+        </article>
+        <article class="member plate" data-id="sophie" data-runes="ᛋᚲ" role="button" tabindex="0" aria-haspopup="dialog" style="--m:#e6b84f">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="member-text">
+            <span class="hud epithet" data-en="Rune Engraver">Gravadora de Runas</span>
+            <h3>Sophie Camilie e Silva</h3>
+            <p class="m-role" data-en="UI Artist">Artista UI</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUILDA -->
+  <section id="guilda" class="guild-band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="rune" aria-hidden="true">ᛞ</span>
+        <span class="hud" data-en="The Guild · Open roles">A Guilda · Vagas abertas</span>
+        <h2 data-en="We're looking for world-smiths">Procuramos ferreiros de mundos</h2>
+      </div>
+      <div class="roles">
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᛊ</span>
+          <h3>Technical VFX Artist</h3>
+          <p data-en="Strikes, spells and impacts that make every skill shine, across both projects.">Golpes, magias e impactos que fazem cada habilidade brilhar, nos dois projetos.</p>
+          <span class="hud" data-en="Empire · Lendas">Empire · Lendas</span>
+        </a>
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᚦ</span>
+          <h3>Creature Artist</h3>
+          <p data-en="Monsters, beasts and mythical beings sculpted to come alive.">Monstros, feras e seres mitológicos esculpidos para ganhar vida.</p>
+          <span class="hud" data-en="Empire · Lendas">Empire · Lendas</span>
+        </a>
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᛟ</span>
+          <h3>Character Artist</h3>
+          <p data-en="Heroes, villagers and villains: people with presence and story.">Heróis, aldeões e vilões: pessoas com presença e história.</p>
+          <span class="hud" data-en="Empire · Lendas">Empire · Lendas</span>
+        </a>
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᛒ</span>
+          <h3>Environment Artist</h3>
+          <p data-en="Villages, forests, rivers and dungeons built inside the game.">Vilas, florestas, rios e masmorras montadas dentro do jogo.</p>
+          <span class="hud" data-en="Empire · Lendas">Empire · Lendas</span>
+        </a>
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᚱ</span>
+          <h3>3D Animator</h3>
+          <p data-en="Characters and creatures in motion, from exploration to battle.">Personagens e criaturas em movimento, da exploração à batalha.</p>
+          <span class="hud" data-en="Lendas">Lendas</span>
+        </a>
+        <a class="role plate" href="#vagas">
+          <span class="glyph rune" aria-hidden="true">ᛇ</span>
+          <h3>UI Artist</h3>
+          <p data-en="Icons, menus and a HUD that looks carved in iron and light.">Ícones, menus e um HUD que pareça gravado em ferro e luz.</p>
+          <span class="hud" data-en="Empire · Lendas">Empire · Lendas</span>
+        </a>
+      </div>
+      <div class="cta" style="margin-top:28px"><a class="btn" href="#vagas" data-en="See all roles and apply">Ver todas as vagas e se candidatar</a></div>
+    </div>
+  </section>
+
+  <!-- COMUNIDADE -->
+  <section id="comunidade">
+    <div class="wrap">
+      <div class="community plate">
+        <div class="community-copy">
+          <span class="hud" style="color:var(--rune)" data-en="Community · Discord">Comunidade · Discord</span>
+          <h2 data-en="Join the forge hall">Junte-se ao salão da forja</h2>
+          <p class="community-lede" data-en="Talk to the people making the games, see news before anyone else and help decide what comes off the anvil.">Converse com quem faz os jogos, veja as novidades antes de todo mundo e ajude a decidir o que sai da bigorna.</p>
+          <ul class="perks">
+            <li data-en="First look at news and builds">Notícias e builds em primeira mão</li>
+            <li data-en="Talk directly with the team">Conversa direta com a equipe</li>
+            <li data-en="Invites to closed playtests">Convites para testes fechados</li>
+            <li data-en="Room for fan art and feedback">Espaço para fan art e feedback</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" id="discord-btn" href="#comunidade">Discord</a>
+            <a class="btn ghost" href="#testadores" data-en="Become a tester">Seja um testador</a>
+          </div>
+        </div>
+        <div class="hall" aria-hidden="true"><svg id="hall" viewBox="0 0 320 320"></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="wrap contact">
+      <div class="info">
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="rune" aria-hidden="true">ᛖ</span>
+          <span class="hud" data-en="Contact · Send a raven">Contato · Envie um corvo</span>
+          <h2 data-en="Light the furnace with us">Acenda a fornalha com a gente</h2>
+        </div>
+        <p data-en="Partnerships, publishers, press, or want to join the guild? Send us a message and we'll reply within 3 business days.">Parcerias, publishers, imprensa ou quer entrar para a guilda? Mande sua mensagem e respondemos em até 3 dias úteis.</p>
+        <div class="channel"><span class="hud">E-mail</span><a href="mailto:empireofrebirth@gmail.com">empireofrebirth@gmail.com</a></div>
+        <div class="channel"><span class="hud" data-en="Community">Comunidade</span><span>Discord · Myth Forge</span></div>
+      </div>
+
+      <form class="plate" id="raven" novalidate>
+        <div class="row2">
+          <div class="field"><label for="f-name" data-en="Name">Nome</label><input id="f-name" name="name" autocomplete="name" placeholder="Seu nome de herói" data-en-placeholder="Your hero name" required></div>
+          <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="voce@reino.com" data-en-placeholder="you@kingdom.com" required></div>
+        </div>
+        <div class="field"><label for="f-topic" data-en="Subject">Assunto</label>
+          <select id="f-topic" name="topic">
+            <option value="partnership" data-en="Partnership / Publisher">Parceria / Publisher</option>
+            <option value="guild" data-en="I want to join the guild">Quero entrar na guilda</option>
+            <option value="press" data-en="Press">Imprensa</option>
+            <option value="other" data-en="Other">Outro</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg" data-en="Message">Mensagem</label><textarea id="f-msg" name="message" placeholder="Conte sua lenda..." data-en-placeholder="Tell us your legend..." required></textarea></div>
+        <button class="btn" type="submit" data-en="Send raven">Enviar corvo</button>
+        <p class="status hud" id="f-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- PÁGINAS DOS JOGOS E DO DIÁRIO (montadas pelo script) -->
+<main id="game-view" hidden></main>
+
+<footer>
+  <div class="wrap">
+    <span class="hud">© 2026 Myth Forge Studios</span>
+    <span class="rune" aria-hidden="true">ᛗᚠᛋ</span>
+    <span class="hud" data-en="Forged in code · Tempered in legend">Forjado em código · Temperado em lenda</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
