@@ -1226,8 +1226,28 @@
       city:'São Paulo, SP',
       links:[{ label:B('Portfólio','Portfolio'), url:'https://jax-made-3d.vercel.app/#top' }]
     },
-    marco:   { bio:null, does:null, games:[], skills:null, quote:null, city:null, links:[] },
-    joao:    { bio:null, does:null, games:[], skills:null, quote:null, city:null, links:[] },
+    marco: {
+      bio:B('Emo velho.','An old emo.'),
+      does:B('Designer de personagens, modelador e animador 3D.','Character designer, 3D modeler and animator.'),
+      games:[{ label:B('Jogos para a Vivax','Games for Vivax'), url:'https://vivaxbr.com/home/' }],
+      skills:B(['Animação 3D'], ['3D animation']),
+      quote:B('Tanto os hindus quanto os vikings acreditavam numa serpente gigante que envolve o mundo e que foi (ou será) morta por um deus usando uma arma mística com o poder do trovão, associada só a ele. E a morte dela causou (ou causará) um grande movimento das águas do mundo.',
+              "Both Hindus and Vikings believed in a giant serpent that encircles the world and that was (or will be) slain by a god wielding a mystic weapon with the power of thunder, bound to him alone. And its death caused (or will cause) a great upheaval of the world's waters."),
+      city:'São Paulo',
+      links:[{ label:'ArtStation', url:'https://www.artstation.com/markrantunes' }]
+    },
+    joao: {
+      bio:B('Um cara comum da vida que só quer cumprir as próprias missões.',
+            'Just an ordinary guy who only wants to complete his own quests.'),
+      does:B('Tatuador, designer gráfico, editor de vídeo, animador, modelador 3D e ilustrador.',
+             'Tattoo artist, graphic designer, video editor, animator, 3D modeler and illustrator.'),
+      games:['empire-of-rebirth'],
+      skills:B(['Animação','Modelagem 3D','Ilustração'], ['Animation','3D modeling','Illustration']),
+      quote:B('Se no olho do furacão eu ver um brilho dourado, é pra lá que eu vou navegar.',
+              "If I see a golden glow in the eye of the storm, that's where I'll sail."),
+      city:null,
+      links:[{ label:'ArtStation', url:'https://www.artstation.com/jhonnydarkmon' }, { label:'LinkedIn', url:'https://www.linkedin.com/in/joaovqr/' }]
+    },
     sophie:  { bio:null, does:null, games:[], skills:null, quote:null, city:null, links:[] }
   };
 
@@ -1249,7 +1269,7 @@
     const secs = [];
     if (d.bio) secs.push(`<div class="mm-sec"><h4>${tx(B('Sobre','About'))}</h4><p>${tx(d.bio)}</p></div>`);
     if (d.does) secs.push(`<div class="mm-sec"><h4>${tx(B('No estúdio','At the studio'))}</h4><p>${tx(d.does)}</p></div>`);
-    if (d.games && d.games.length) secs.push(`<div class="mm-sec"><h4>${tx(B('Jogos','Games'))}</h4><div class="mm-chips">${d.games.map(g => `<span>${GAMES[g] ? GAMES[g].short : g}</span>`).join('')}</div></div>`);
+    if (d.games && d.games.length) secs.push(`<div class="mm-sec"><h4>${tx(B('Jogos','Games'))}</h4><div class="mm-chips">${d.games.map(g => typeof g === 'object' ? `<a href="${g.url}" target="_blank" rel="noopener">${tx(g.label)} ↗</a>` : `<span>${GAMES[g] ? GAMES[g].short : g}</span>`).join('')}</div></div>`);
     const sk = d.skills && tx(d.skills);
     if (sk && sk.length) secs.push(`<div class="mm-sec"><h4>${tx(B('Especialidades','Specialties'))}</h4><div class="mm-chips">${sk.map(x => `<span>${x}</span>`).join('')}</div></div>`);
     if (d.quote) secs.push(`<blockquote class="mm-quote">${tx(d.quote)}</blockquote>`);
